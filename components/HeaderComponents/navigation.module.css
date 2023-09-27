@@ -1,0 +1,23 @@
+.navLink {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  font-family: var(--font-barlow);
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  align-items: center;
+  letter-spacing: 2.7px;
+  border-bottom: 3px solid transparent;
+}
+
+.navLink > p {
+  font-weight: 700;
+}
+
+.navLinkActive {
+  border-bottom: 3px solid #ffffff;
+}
+.navLink:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}

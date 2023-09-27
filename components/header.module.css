@@ -1,0 +1,47 @@
+.header {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header > a {
+  display: block;
+  margin-left: 55px;
+  width: 48px;
+  height: 48px;
+  transition: 0.5s;
+  background: transparent;
+  border-radius: 50%;
+}
+
+.header > a:hover {
+  box-shadow: rgb(255, 255, 255) 0 0 15px;
+}
+
+.nav {
+  width: 830px;
+  height: 96px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(41px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.nav::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -443px;
+  transform: translateY(-50%);
+  width: 473px;
+  height: 1px;
+  opacity: 0.2515;
+  background: #fff;
+}
