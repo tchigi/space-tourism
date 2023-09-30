@@ -2,7 +2,7 @@
   display: flex;
   height: 100%;
   gap: 10px;
-  font-family: var(--font-barlow);
+  font-family: var(--font-barlowCondensed);
   font-size: 16px;
   color: #ffffff;
   text-decoration: none;
@@ -10,14 +10,27 @@
   letter-spacing: 2.7px;
   border-bottom: 3px solid transparent;
 }
+.navLinkDestination {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  color: #d0d6f9;
+  font-family: var(--font-barlowCondensed);
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: 2.7px;
+  border-bottom: 3px solid transparent;
+}
 
-.navLink > p {
+.navLink > span {
   font-weight: 700;
 }
 
 .navLinkActive {
+  color: #ffffff;
   border-bottom: 3px solid #ffffff;
 }
-.navLink:hover {
+.navLink:hover,
+.navLinkDestination:hover {
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }

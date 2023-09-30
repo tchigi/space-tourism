@@ -3,29 +3,37 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import styles from "./navigation.module.css"
 
-const Navigation = () => {
+type NavLink = {
+  label: string
+  p: string | null
+  href: string
+}
+type Props = {
+  navLinks: NavLink[]
+  header: boolean
+}
+
+const Navigation = ({ navLinks, header }: Props) => {
   const pathname = usePathname()
-  const navLinks = [
-    { label: "HOME", p: "00", href: "/" },
-    { label: "DESTINATION", p: "01", href: "/destination" },
-    { label: "CREW", p: "02", href: "/crew" },
-    { label: "TECHNOLOGY", p: "03", href: "/technology" },
-  ]
 
   return (
     <>
       {navLinks.map((link) => {
-        const isActive = pathname === link.href
+        const isActive = header
+          ? pathname.includes("destination") && link.href.includes("destination")
+            ? true
+            : pathname === link.href
+          : pathname === link.href
 
         return (
           <Link
             href={link.href}
             key={link.label}
-            className={`${styles.navLink} ${
+            className={`${header ? styles.navLink : styles.navLinkDestination} ${
               isActive ? styles.navLinkActive : ""
             }`}
           >
-            <p>{link.p}</p>
+            {link.p ? <span>{link.p}</span> : ""}
             {link.label}
           </Link>
         )

@@ -1,0 +1,69 @@
+.crewContent {
+  margin: 136px auto;
+  padding: 76px 166px 0;
+  width: 1440px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.crewTitle {
+  display: flex;
+  gap: 28px;
+}
+.crewTitle > strong {
+  color: #fff;
+  font-family: var(--font-barlowCondensed);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 4.725px;
+  opacity: 0.25;
+}
+.crewInfoWrapper {
+  display: flex;
+  margin-top: 64px;
+  height: 100%;
+}
+.memberInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.memberInfo p{
+  width: 444px;
+}
+.memberInfo h4{
+  opacity: 0.5;
+}
+.memberImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.memberImg {
+  transition: 0.3s;
+}
+.crewSlider {
+  display: flex;
+  gap: 30px;
+}
+.crewSliderDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.2;
+  cursor: pointer;
+}
+.crewSliderDot:hover {
+  opacity: 0.5;
+}
+.activeCrewSliderDot {
+  opacity: 1;
+}

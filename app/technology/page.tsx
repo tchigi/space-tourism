@@ -1,5 +1,9 @@
-import styles from "@/app/page.module.css"
+import styles from "./page.module.css"
 
 export default function Technology() {
-  return <main>Technology</main>
+  return (
+    <main className={styles.technologyWrapper}>
+      <div className={styles.technologyContent}></div>
+    </main>
+  )
 }

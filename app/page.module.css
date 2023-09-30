@@ -8,6 +8,46 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+}
+.homeContent {
+  margin: 136px auto;
+  width: 1440px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 166px;
+}
+.homeTextContainer {
+  width: 444px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.homeButton {
+  width: 274px;
+  height: 274px;
+  border-radius: 274px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.homeButton:hover {
+  box-shadow: 0 0 0 88px rgba(255, 255, 255, 0.1);
+}
+.homeButtonLabel {
+  color: #0b0d17;
+  font-family: var(--font-bellefair);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2px;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 1024px) {

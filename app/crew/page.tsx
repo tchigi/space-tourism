@@ -1,5 +1,11 @@
-import styles from "@/app/page.module.css"
+import styles from "./page.module.css"
+import React from "react"
+import {CrewSlider} from "@/components/CrewComponents/CrewSlider"
 
 export default function Crew() {
-  return <main>crew</main>
+  return (
+    <main className={styles.crewWrapper}>
+      <CrewSlider />
+    </main>
+  )
 }
