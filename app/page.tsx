@@ -4,8 +4,8 @@ import Link from "next/link"
 export default function Home() {
   return (
     <main className={styles.homeWrapper}>
-      <div className={styles.homeContent}>
-        <div className={styles.homeTextContainer}>
+      <section className={styles.homeContent}>
+        <article className={styles.homeTextContainer}>
           <h5>SO, YOU WANT TO TRAVEL TO</h5>
           <h1>SPACE</h1>
           <p>
@@ -14,11 +14,11 @@ export default function Home() {
             Well sit back, and relax because we’ll give you a truly out of this
             world experience!
           </p>
-        </div>
-        <Link href={"/destination"} className={styles.homeButton}>
+        </article>
+        <Link href={"/destination/moon"} className={styles.homeButton}>
           <label className={styles.homeButtonLabel}>EXPLORE</label>
         </Link>
-      </div>
+      </section>
     </main>
   )
 }

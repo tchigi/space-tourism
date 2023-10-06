@@ -2,10 +2,10 @@ import styles from "@/app/destination/[id]/page.module.css"
 import { Navigation } from "@/components/HeaderComponents/Navigation"
 import React from "react"
 import Image from "next/image"
-import moonImage from "@/assets/destination/image-moon.png"
-import marsImage from "@/assets/destination/image-mars.png"
-import europaImage from "@/assets/destination/image-europa.png"
-import titanImage from "@/assets/destination/image-titan.png"
+import moonImage from "@/assets/destination/image-moon.webp"
+import marsImage from "@/assets/destination/image-mars.webp"
+import europaImage from "@/assets/destination/image-europa.webp"
+import titanImage from "@/assets/destination/image-titan.webp"
 
 type Props = {
   params: {
@@ -59,12 +59,18 @@ export default function Planet({ params: { id } }: Props) {
         <Image
           alt={id}
           src={planetImages[id]}
-          width={445}
-          height={445}
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes=" (max-width: 425px) 170px,(max-width: 1024px) 300px, 445px"
+          style={{
+            objectFit: 'cover',
+          }}
           className={styles.img}
+          priority
         />
       </figure>
-      <div className={styles.planetInfo}>
+      <article className={styles.planetInfo}>
         <div className={styles.destinationNavigation}>
           <Navigation navLinks={planetNavLinks} header={false} />
         </div>
@@ -84,7 +90,7 @@ export default function Planet({ params: { id } }: Props) {
             </span>
           </div>
         </div>
-      </div>
+      </article>
     </section>
   )
 }

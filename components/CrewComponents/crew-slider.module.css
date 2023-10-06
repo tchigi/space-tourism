@@ -1,10 +1,16 @@
 .crewContent {
-  margin: 136px auto;
-  padding: 76px 166px 0;
-  width: 1440px;
+  margin: 130px auto 0;
+  padding: 70px 140px 0;
+  width: 100%;
+  max-width: 1440px;
   height: auto;
   display: flex;
+  flex-direction: column;
+}
+.crewInfoWrapper {
+  display: flex;
   justify-content: space-between;
+  height: 690px;
 }
 .crewTitle {
   display: flex;
@@ -20,34 +26,33 @@
   letter-spacing: 4.725px;
   opacity: 0.25;
 }
-.crewInfoWrapper {
-  display: flex;
-  margin-top: 64px;
-  height: 100%;
-}
 .memberInfoWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 120px;
 }
 .memberInfo {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.memberInfo p{
-  width: 444px;
+.memberInfo p {
+  max-width: 444px;
 }
-.memberInfo h4{
+.memberInfo h4 {
   opacity: 0.5;
 }
 .memberImage {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  position: relative;
+  border-bottom: 1px #383b4b solid;
+  max-width: 580px;
 }
 .memberImg {
-  transition: 0.3s;
+  height: auto;
+  width: calc(350px + (580 - 350) * ((100vw - 1024px) / (1440 - 1024)));
 }
 .crewSlider {
   display: flex;
@@ -66,4 +71,97 @@
 }
 .activeCrewSliderDot {
   opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .crewContent {
+    padding: 0 5%;
+    max-width: 768px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .crewTitle > strong {
+    font-size: 20px;
+    letter-spacing: 3.375px;
+  }
+  .crewInfoWrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+    max-height: none;
+    height: auto;
+  }
+  .memberInfoWrapper {
+    gap: 0;
+  }
+  .memberInfo {
+    align-self: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .memberInfo p {
+    width: auto;
+    max-width: 450px;
+  }
+  .crewSlider {
+    margin-top: 40px;
+    align-self: center;
+    gap: 20px;
+  }
+  .crewSliderDot {
+    width: 15px;
+    height: 15px;
+  }
+  .memberImage {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+  .memberImg {
+    height: calc(230px + (530 - 230) * ((100vw - 425px) / (1024 - 425)));
+    width: auto;
+    max-width: 425px;
+    max-height: 530px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .crewContent {
+    margin: 80px auto 40px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .crewContent {
+    padding: 0 5%;
+    max-width: 320px;
+  }
+  .crewTitle {
+    justify-content: center;
+    gap: 16px;
+  }
+  .crewTitle > strong {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+  .crewInfoWrapper {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+  .memberInfoWrapper {
+    flex-direction: column-reverse;
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+  .crewSlider {
+    margin-top: 0;
+  }
+  .memberInfo p {
+    width: auto;
+    max-width: 300px;
+  }
+  .memberImg {
+    height: 230px;
+    max-width: 200px;
+    max-height: 230px;
+  }
 }

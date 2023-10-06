@@ -1,6 +1,6 @@
 "use client"
 import styles from "./crew-slider.module.css"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import image1 from "@/assets/crew/image-douglas-hurley.png"
 import image2 from "@/assets/crew/image-mark-shuttleworth.png"
@@ -13,7 +13,7 @@ const CrewSlider = () => {
       id: 0,
       role: "COMMANDER",
       name: "DOUGLAS HURLEY",
-      p: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+      p: "Douglas Gerald Hurley is an engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2. Spent more than 10 years in space",
     },
     {
       id: 1,
@@ -25,7 +25,7 @@ const CrewSlider = () => {
       id: 2,
       role: "PILOT",
       name: "VICTOR GLOVER",
-      p: "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64, and served as a station systems flight engineer. ",
+      p: "Pilot on the first operational flight of the SpaceX Crew Dragon to the International Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He was a crew member of Expedition 64. ",
     },
     {
       id: 3,
@@ -48,33 +48,43 @@ const CrewSlider = () => {
 
   return (
     <section className={styles.crewContent}>
-      <div className={styles.memberInfoWrapper}>
-        <div className={styles.crewTitle}>
-          <strong>02</strong>
-          <h5>MEET YOUR CREW</h5>
-        </div>
-        <div className={styles.memberInfo}>
-          <h4>{crewInfo[currentSlide].role}</h4>
-          <h3>{crewInfo[currentSlide].name}</h3>
-          <p>{crewInfo[currentSlide].p}</p>
-        </div>
-        <div className={styles.crewSlider}>
-          {crewInfo.map((member, memberIndex) => {
-            return (
-              <button
-                className={`${styles.crewSliderDot} ${
-                  memberIndex === currentSlide ? styles.activeCrewSliderDot : ""
-                }`}
-                onClick={() => goToSlide(memberIndex)}
-                key={member.id}
-              ></button>
-            )
-          })}
-        </div>
+      <div className={styles.crewTitle}>
+        <strong>02</strong>
+        <h5>MEET YOUR CREW</h5>
       </div>
-      <figure className={styles.memberImage}>
-        <Image src={crewImages[currentSlide]} alt={"Member Image"} priority className={styles.memberImg} />
-      </figure>
+      <div className={styles.crewInfoWrapper}>
+        <div className={styles.memberInfoWrapper}>
+          <article className={styles.memberInfo}>
+            <h4>{crewInfo[currentSlide].role}</h4>
+            <h3>{crewInfo[currentSlide].name}</h3>
+            <p>{crewInfo[currentSlide].p}</p>
+          </article>
+          <div className={styles.crewSlider}>
+            {crewInfo.map((member, memberIndex) => {
+              return (
+                <button
+                  className={`${styles.crewSliderDot} ${
+                    memberIndex === currentSlide
+                      ? styles.activeCrewSliderDot
+                      : ""
+                  }`}
+                  onClick={() => goToSlide(memberIndex)}
+                  key={member.id}
+                ></button>
+              )
+            })}
+          </div>
+        </div>
+        <figure className={styles.memberImage}>
+          <Image
+            src={crewImages[currentSlide]}
+            alt={"Member Image"}
+            quality={100}
+            priority
+            className={styles.memberImg}
+          />
+        </figure>
+      </div>
     </section>
   )
 }

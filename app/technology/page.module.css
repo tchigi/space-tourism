@@ -1,33 +1,76 @@
 .technologyWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-image: url("../../assets/technology/background-technology-desktop.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/technology/background-technology-desktop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
 }
 .technologyContent {
-    margin: 136px auto;
-    width: 1440px;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 166px;
+  margin: 130px auto 0;
+  padding: 70px 140px 0;
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
+.technologyTitle {
+  display: flex;
+  gap: 28px;
+}
+.technologyTitle > strong {
+  color: #fff;
+  font-family: var(--font-barlowCondensed);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 4.725px;
+  opacity: 0.25;
+}
 
 @media screen and (max-width: 1024px) {
-    .technologyWrapper {
-        background-image: url("../../assets/technology/background-technology-tablet.jpg");
-    }
+  .technologyWrapper {
+    background-image: url("../../assets/technology/background-technology-tablet.jpg");
+  }
+  .technologyContent {
+    padding: 0 5%;
+    max-width: 768px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+  }
+  .technologyTitle > strong {
+    font-size: 20px;
+    letter-spacing: 3.375px;
+  }
 }
-@media screen and (max-width: 420px) {
-    .technologyWrapper {
-        background-image: url("../../assets/technology/background-technology-mobile.jpg");
-    }
+@media screen and (max-width: 600px) {
+  .technologyContent {
+    margin: 80px auto 40px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .technologyWrapper {
+    background-image: url("../../assets/technology/background-technology-mobile.jpg");
+  }
+  .technologyContent {
+    max-width: 320px;
+    gap: 20px;
+  }
+  .technologyTitle {
+    align-self: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .technologyTitle > strong {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
 }

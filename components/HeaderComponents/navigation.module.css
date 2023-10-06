@@ -34,3 +34,23 @@
 .navLinkDestination:hover {
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
 }
+@media screen and (max-width: 600px) {
+  .navLink {
+    height: 30px;
+    border-bottom: none;
+    border-right: 3px solid transparent;
+  }
+  .navLink > span {
+    display: block;
+    width: 20px;
+    text-align: center;
+  }
+  .navLink:hover {
+    border-bottom: none;
+    border-right: 3px solid rgba(255, 255, 255, 0.5);
+  }
+  .navLink.navLinkActive {
+    border-bottom: none;
+    border-right: 3px solid #ffffff;
+  }
+}
