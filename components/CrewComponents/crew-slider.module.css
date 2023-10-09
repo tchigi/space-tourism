@@ -1,16 +1,15 @@
 .crewContent {
   margin: 130px auto 0;
-  padding: 70px 140px 0;
-  width: 100%;
+  padding: 60px min(140px, 10%) 0;
   max-width: 1440px;
-  height: auto;
   display: flex;
   flex-direction: column;
 }
 .crewInfoWrapper {
-  display: flex;
-  justify-content: space-between;
-  height: 690px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  gap: 20px;
 }
 .crewTitle {
   display: flex;
@@ -27,32 +26,60 @@
   opacity: 0.25;
 }
 .memberInfoWrapper {
+  margin: 100px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 120px;
+  gap: 100px;
 }
-.memberInfo {
-  display: flex;
-  flex-direction: column;
+.memberInfoSlider {
+  overflow-x: hidden;
+}
+.memberInfoSlide {
+  inline-size: 100%;
+  display: none;
+  grid-auto-flow: row;
   gap: 20px;
+  transition: 0.5s;
 }
-.memberInfo p {
-  max-width: 444px;
+.activeMemberInfoSlide {
+  display: grid;
+  animation: memberInfoSlideIn 0.5s;
 }
-.memberInfo h4 {
+
+@keyframes memberInfoSlideIn {
+  0% {
+    margin-left: -200%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+
+.memberInfoSlider p {
+  width: 444px;
+}
+.memberInfoSlider h4 {
   opacity: 0.5;
 }
-.memberImage {
-  display: flex;
-  align-items: flex-end;
+
+.memberImageSlider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  justify-items: right;
+  align-items: end;
   position: relative;
-  border-bottom: 1px #383b4b solid;
-  max-width: 580px;
+  overflow-x: hidden;
 }
 .memberImg {
-  height: auto;
-  width: calc(350px + (580 - 350) * ((100vw - 1024px) / (1440 - 1024)));
+  inline-size: 100%;
+  object-fit: contain;
+  transition: 0.5s;
+  opacity: 0;
+}
+.activeMemberImg {
+  opacity: 1;
 }
 .crewSlider {
   display: flex;
@@ -86,21 +113,20 @@
     letter-spacing: 3.375px;
   }
   .crewInfoWrapper {
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 40px;
-    max-height: none;
-    height: auto;
+    grid-auto-flow: row;
+    grid-auto-rows: auto;
+    gap: 10px;
   }
   .memberInfoWrapper {
     gap: 0;
+    margin: 10px 0;
   }
-  .memberInfo {
+  .memberInfoSlider {
     align-self: center;
     text-align: center;
     gap: 20px;
   }
-  .memberInfo p {
+  .memberInfoSlider p {
     width: auto;
     max-width: 450px;
   }
@@ -113,15 +139,9 @@
     width: 15px;
     height: 15px;
   }
-  .memberImage {
-    display: flex;
-    align-self: center;
-    justify-content: center;
+  .memberImageSlider {
   }
   .memberImg {
-    height: calc(230px + (530 - 230) * ((100vw - 425px) / (1024 - 425)));
-    width: auto;
-    max-width: 425px;
     max-height: 530px;
   }
 }
@@ -155,13 +175,15 @@
   .crewSlider {
     margin-top: 0;
   }
-  .memberInfo p {
+  .memberInfoSlider p {
     width: auto;
     max-width: 300px;
   }
+  .memberImageSlider {
+    order: -1;
+    border-bottom: 1px solid #383b4b;
+  }
   .memberImg {
-    height: 230px;
-    max-width: 200px;
     max-height: 230px;
   }
 }

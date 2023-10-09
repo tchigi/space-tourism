@@ -1,6 +1,8 @@
 "use client"
 import styles from "./tech-slider.module.css"
 import { useState } from "react"
+import { TechImageSlider } from "@/components/TechComponents/TechImageSlider"
+import { TechInfoSlider } from "@/components/TechComponents/TechInfoSlider"
 
 const TechSlider = () => {
   const techSliderInfo = [
@@ -44,16 +46,14 @@ const TechSlider = () => {
           )
         })}
       </div>
-      <div className={styles.techSliderInfoWrapper}>
-        <span className={styles.subheading3}>THE TERMINOLOGY…</span>
-        <h3>{techSliderInfo[currentSlide].name}</h3>
-        <p>{techSliderInfo[currentSlide].p}</p>
-      </div>
-      <figure
-        className={`${styles.techSliderImage} ${
-          styles[techSliderInfo[currentSlide].imageClass]
-        }`}
-      ></figure>
+      <TechInfoSlider
+        currentSlide={currentSlide}
+        techSliderInfo={techSliderInfo}
+      />
+      <TechImageSlider
+        currentSlide={currentSlide}
+        techSliderInfo={techSliderInfo}
+      />
     </div>
   )
 }

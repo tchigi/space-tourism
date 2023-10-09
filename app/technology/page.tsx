@@ -1,6 +1,12 @@
 import styles from "./page.module.css"
 import React from "react"
 import { TechSlider } from "@/components/TechComponents/TechSlider"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Technology | Space Tourism",
+  description: "Technology | Space Tourism by Tchigi",
+}
 
 export default function Technology() {
   return (

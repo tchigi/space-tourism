@@ -1,15 +1,15 @@
 .techSliderWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
   width: 100%;
-  gap: 20px;
+  grid-template-columns: auto 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  max-height: 520px;
 }
 .techSliderDotsWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-
+  justify-content: center;
+  gap: 20px;
 }
 .techSliderDot {
   width: 70px;
@@ -42,9 +42,28 @@
 }
 .techSliderInfoWrapper {
   display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+.techInfoSlide {
+  inline-size: 100%;
+  display: none;
   flex-direction: column;
-  gap: 15px;
   justify-content: center;
+  gap: 40px;
+  transition: 0.5s;
+}
+.activeTechInfo {
+  display: flex;
+  animation: techInfoSlideIn 0.5s;
+}
+@keyframes techInfoSlideIn {
+  0% {
+    margin-left: -200%;
+  }
+  100% {
+    margin-left: 0;
+  }
 }
 .subheading3 {
   color: #d0d6f9;
@@ -55,16 +74,22 @@
   line-height: normal;
   letter-spacing: 2.7px;
 }
-.techSliderInfoWrapper > p {
-  max-width: 444px;
+.techImageSlider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: hidden;
+  height: 520px;
 }
-.techSliderImage {
-  max-width: 400px;
-  width: calc(200px + (400 - 200) * ((100vw - 1024px) / (1440 - 1024)));
-  height: 400px;
-  background-repeat: no-repeat;
+.techImageSlide {
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  transition: 0.5s;
+  opacity: 0;
+}
+.activeTechImg {
+  opacity: 1;
 }
 .launchVehicleImg {
   background-image: url("../../assets/technology/image-launch-vehicle-portrait.jpg");
@@ -77,12 +102,14 @@
 }
 @media screen and (max-width: 1024px) {
   .techSliderWrapper {
-    flex-direction: column;
-    justify-content: flex-start;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3, auto);
     width: 100%;
     gap: 40px;
+    max-height: none;
   }
   .techSliderDotsWrapper {
+    margin-top: 340px;
     flex-direction: row;
     justify-content: center;
     gap: 20px;
@@ -97,17 +124,17 @@
     align-items: center;
     text-align: center;
   }
-  .techSliderInfoWrapper > p {
-    max-width: 420px;
+  .techInfoSlide {
+    gap: 30px;
   }
-  .techSliderImage {
-    max-width: none;
-    max-height: none;
+  .techImageSlider {
+    height: 300px;
+    position: absolute;
+    justify-self: center;
     width: 100%;
-    height: calc(170px + (310 - 170) * ((100vw - 425px) / (1024 - 425)));
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  }
+  .techImageSlide {
+    margin-right: -5px;
   }
   .launchVehicleImg {
     background-image: url("../../assets/technology/image-launch-vehicle-landscape.jpg");
@@ -124,14 +151,17 @@
     gap: 30px;
   }
   .techSliderDotsWrapper {
+    margin-top: 200px;
     gap: 20px;
   }
   .techSliderDot {
     width: 40px;
     height: 40px;
   }
-  .techSliderImage {
+  .techInfoSlide {
+    gap: 20px;
+  }
+  .techImageSlider {
     height: 170px;
-    background-size: cover;
   }
 }

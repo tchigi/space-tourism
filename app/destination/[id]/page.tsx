@@ -6,6 +6,12 @@ import moonImage from "@/assets/destination/image-moon.webp"
 import marsImage from "@/assets/destination/image-mars.webp"
 import europaImage from "@/assets/destination/image-europa.webp"
 import titanImage from "@/assets/destination/image-titan.webp"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Destination | Space Tourism",
+  description: "Destination | Space Tourism by Tchigi",
+}
 
 type Props = {
   params: {

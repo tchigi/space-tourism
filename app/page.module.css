@@ -2,23 +2,20 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: auto;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   background-image: url("../assets/home/background-home-desktop.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
 }
 .homeContent {
   margin: 130px auto 20px;
   width: 100%;
   max-width: 1440px;
-  height: auto;
   display: flex;
-  justify-content: space-between;
-  padding: 250px 10% 0;
+  justify-content: space-around;
+  padding: 250px min(140px, 10%) 0;
 }
 .homeTextContainer {
   width: 444px;
@@ -96,8 +93,8 @@
     gap: 16px;
   }
   .homeButton {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
   .homeButtonLabel {
     font-size: 20px;
