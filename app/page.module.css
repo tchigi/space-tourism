@@ -24,6 +24,7 @@
   gap: 24px;
 }
 .homeButton {
+  position: relative;
   width: 274px;
   height: 274px;
   border-radius: 50%;
@@ -33,9 +34,21 @@
   justify-content: center;
   text-decoration: none;
   transition: 0.5s;
+  animation: buttonPulse 4s infinite ease-in;
 }
 .homeButton:hover {
-  box-shadow: 0 0 0 88px rgba(255, 255, 255, 0.1);
+  animation: buttonPulse 1s infinite ease-in-out;
+}
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 10px clamp(30px, 3vw, 88px) rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 .homeButtonLabel {
   color: #0b0d17;
@@ -70,9 +83,6 @@
   .homeButton {
     width: 242px;
     height: 242px;
-  }
-  .homeButton:hover {
-    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1);
   }
 }
 @media screen and (max-width: 600px) {

@@ -2,7 +2,7 @@
 import styles from "@/components/TechComponents/tech-slider.module.css"
 
 type Props = {
-  currentSlide: number,
+  currentSlide: number
   techSliderInfo: TechInfo[]
 }
 type TechInfo = {
@@ -11,15 +11,17 @@ type TechInfo = {
   imageClass: string
 }
 
-const TechInfoSlider = ({currentSlide, techSliderInfo}: Props) => {
-
+const TechInfoSlider = ({ currentSlide, techSliderInfo }: Props) => {
   return (
     <div className={styles.techSliderInfoWrapper}>
-      {techSliderInfo.map((item,index) => {
+      {techSliderInfo.map((item, index) => {
         return (
-          <div className={`${styles.techInfoSlide} ${
-            index === currentSlide ? styles.activeTechInfo : ""
-          }`} key={item.name}>
+          <div
+            className={`${styles.techInfoSlide} ${
+              index === currentSlide ? styles.activeTechInfo : ""
+            }`}
+            key={item.name}
+          >
             <span className={styles.subheading3}>THE TERMINOLOGY…</span>
             <h3>{techSliderInfo[index].name}</h3>
             <p>{techSliderInfo[index].p}</p>
@@ -30,4 +32,4 @@ const TechInfoSlider = ({currentSlide, techSliderInfo}: Props) => {
   )
 }
 
-export {TechInfoSlider}
+export { TechInfoSlider }

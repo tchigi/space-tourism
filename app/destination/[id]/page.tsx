@@ -70,7 +70,7 @@ export default function Planet({ params: { id } }: Props) {
           fill
           sizes=" (max-width: 425px) 170px,(max-width: 1024px) 300px, 445px"
           style={{
-            objectFit: 'cover',
+            objectFit: "cover",
           }}
           className={styles.img}
           priority

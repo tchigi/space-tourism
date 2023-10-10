@@ -20,7 +20,8 @@ const Navigation = ({ navLinks, header }: Props) => {
     <>
       {navLinks.map((link) => {
         const isActive = header
-          ? pathname.includes("destination") && link.href.includes("destination")
+          ? pathname.includes("destination") &&
+            link.href.includes("destination")
             ? true
             : pathname === link.href
           : pathname === link.href
@@ -29,9 +30,9 @@ const Navigation = ({ navLinks, header }: Props) => {
           <Link
             href={link.href}
             key={link.label}
-            className={`${header ? styles.navLink : styles.navLinkDestination} ${
-              isActive ? styles.navLinkActive : ""
-            }`}
+            className={`${
+              header ? styles.navLink : styles.navLinkDestination
+            } ${isActive ? styles.navLinkActive : ""}`}
           >
             {link.p ? <span>{link.p}</span> : ""}
             {link.label}

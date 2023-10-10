@@ -20,7 +20,10 @@ const BurgerMenu = () => {
 
   useEffect(() => {
     const close = (e) => {
-      if (e.target !== burgerRef.current && !Array.from(navRef.current.children).includes(e.target)) {
+      if (
+        e.target !== burgerRef.current &&
+        !Array.from(navRef.current.children).includes(e.target)
+      ) {
         setIsActive(false)
       }
     }
@@ -32,9 +35,17 @@ const BurgerMenu = () => {
 
   return (
     <aside
-      ref={burgerRef} className={`${styles.burgerMenu} ${isActive ? styles.burgerClose : ""}`} onClick={(e) => onClickHandler(e)}>
+      ref={burgerRef}
+      className={`${styles.burgerMenu} ${isActive ? styles.burgerClose : ""}`}
+      onClick={(e) => onClickHandler(e)}
+    >
       <span className={styles.burgerMenuSpan}></span>
-      <div className={`${styles.burgerMenuBg} ${isActive ? styles.burgerBgActive : ""}`} ref={navRef}>
+      <div
+        className={`${styles.burgerMenuBg} ${
+          isActive ? styles.burgerBgActive : ""
+        }`}
+        ref={navRef}
+      >
         <Navigation navLinks={navLinks} header={true} />
       </div>
     </aside>
