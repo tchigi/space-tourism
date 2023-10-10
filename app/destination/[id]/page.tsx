@@ -64,7 +64,7 @@ export default function Planet({ params: { id } }: Props) {
       <figure className={styles.image}>
         <Image
           alt={id}
-          src={planetImages[id]}
+          src={planetImages[id].src}
           placeholder="blur"
           quality={100}
           fill
