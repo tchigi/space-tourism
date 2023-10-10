@@ -27,10 +27,10 @@ export default function Planet({ params: { id } }: Props) {
     { label: "TITAN", p: null, href: "/destination/titan" },
   ]
   const planetImages = {
-    moon: moonImage,
-    mars: marsImage,
-    europa: europaImage,
-    titan: titanImage,
+    moon: moonImage.src,
+    mars: marsImage.src,
+    europa: europaImage.src,
+    titan: titanImage.src,
   }
   const planetInfo = {
     moon: {
@@ -58,14 +58,15 @@ export default function Planet({ params: { id } }: Props) {
       travelTime: "7 YEARS",
     },
   }
+  const currentImage = planetImages[id as keyof typeof planetImages]
+  const currentInfo = planetInfo[id as keyof typeof planetInfo]
 
   return (
     <section className={styles.planetWrapper}>
       <figure className={styles.image}>
         <Image
           alt={id}
-          src={planetImages[id].src}
-          placeholder="blur"
+          src={currentImage}
           quality={100}
           fill
           sizes=" (max-width: 425px) 170px,(max-width: 1024px) 300px, 445px"
@@ -80,19 +81,19 @@ export default function Planet({ params: { id } }: Props) {
         <div className={styles.destinationNavigation}>
           <Navigation navLinks={planetNavLinks} header={false} />
         </div>
-        <h2>{planetInfo[id].title}</h2>
-        <p>{planetInfo[id].text}</p>
+        <h2>{currentInfo.title}</h2>
+        <p>{currentInfo.text}</p>
         <div className={styles.travelInfo}>
           <div>
             <span className={styles.subheading2}>AVG. DISTANCE</span>
             <span className={styles.subheading1}>
-              {planetInfo[id].distance}
+              {currentInfo.distance}
             </span>
           </div>
           <div>
             <span className={styles.subheading2}>EST. TRAVEL TIME</span>
             <span className={styles.subheading1}>
-              {planetInfo[id].travelTime}
+              {currentInfo.travelTime}
             </span>
           </div>
         </div>

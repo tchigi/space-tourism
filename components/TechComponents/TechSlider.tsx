@@ -23,7 +23,7 @@ const TechSlider = () => {
     },
   ]
   const [currentSlide, setCurrentSlide] = useState(0)
-  const onCLickHandler = (index) => {
+  const onCLickHandler = (index: number) => {
     setCurrentSlide(index)
   }
 

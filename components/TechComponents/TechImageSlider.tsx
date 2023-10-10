@@ -12,7 +12,7 @@ type TechInfo = {
 }
 
 const TechImageSlider = ({ currentSlide, techSliderInfo }: Props) => {
-  const animationByMargin = (index) => {
+  const animationByMargin = (index: number) => {
     if (index === 0) {
       return index === currentSlide ? "0" : "100%"
     }

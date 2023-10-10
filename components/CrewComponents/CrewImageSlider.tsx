@@ -14,7 +14,7 @@ type Props = {
 
 const CrewImageSlider = ({ currentSlide }: Props) => {
   const crewImages = [image1, image2, image3, image4]
-  const animationByMargin = (index) => {
+  const animationByMargin = (index: number) => {
     if (index === 0) {
       return index === currentSlide ? "0" : "-100%"
     }

@@ -7,7 +7,7 @@ import { CrewMemberInfoSlider } from "@/components/CrewComponents/CrewMemberInfo
 const CrewSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index)
   }
 
