@@ -15,4 +15,4 @@
 * TypeScript
 * CSS Modules
 
-[//]: # (    * Деплой [https://myanibook.vercel.app/]&#40;https://myanibook.vercel.app/&#41;)
+## Деплой [https://space-tourism-seven-flame.vercel.app/](https://space-tourism-seven-flame.vercel.app/)
