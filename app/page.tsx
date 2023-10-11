@@ -15,9 +15,14 @@ export default function Home() {
             world experience!
           </p>
         </article>
-        <Link href={"/destination/moon"} className={styles.homeButton}>
-          <label className={styles.homeButtonLabel}>EXPLORE</label>
-        </Link>
+        <figure className={styles.system}>
+          <Link href={"/destination/moon"} className={styles.homeButton}>
+            <label className={styles.homeButtonLabel}>EXPLORE</label>
+          </Link>
+          <div className={styles.orbit}>
+            <div className={styles.planet} />
+          </div>
+        </figure>
       </section>
     </main>
   )

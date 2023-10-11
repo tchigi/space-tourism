@@ -13,8 +13,12 @@
   margin: 130px auto 20px;
   width: 100%;
   max-width: 1440px;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
   padding: 250px min(140px, 10%) 0;
 }
 .homeTextContainer {
@@ -23,31 +27,102 @@
   flex-direction: column;
   gap: 24px;
 }
+/*----------------------HOME BUTTON------------------*/
+
 .homeButton {
-  position: relative;
-  width: 274px;
-  height: 274px;
-  border-radius: 50%;
-  background: #fff;
+  position: absolute;
+  inset: 50%;
+  translate: -50% -50%;
+  width: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  border-radius: 50%;
+  /*background: radial-gradient(at center, #ffff00, #ffa901);*/
+  background: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
   transition: 0.5s;
-  animation: buttonPulse 4s infinite ease-in;
+  transform: rotateX(-90deg);
+  pointer-events: auto;
 }
 .homeButton:hover {
-  animation: buttonPulse 1s infinite ease-in-out;
+  box-shadow: 0 0 10px 2vw rgba(255, 170, 0, 0.5);
 }
-@keyframes buttonPulse {
+.system {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  transform-style: preserve-3d;
+  transform: rotateX(80deg) rotateY(-20deg);
+}
+.orbit,
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.planet {
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+}
+.orbit {
+  width: 20em;
+  height: 20em;
+  margin-top: -10em;
+  margin-left: -10em;
+  border: 4px dotted rgba(100, 100, 100, 0.8);
+  animation: animOrbit 12s linear infinite;
+}
+.planet {
+  background-color: #af8d27;
+  left: 100%;
+  animation: animPlanet 12s linear infinite;
+}
+@keyframes animOrbit {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-  50% {
-    box-shadow: 0 0 10px clamp(30px, 3vw, 88px) rgba(255, 255, 255, 0.3);
+    transform: rotateZ(180deg);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    transform: rotateZ(-180deg);
+  }
+}
+@keyframes animPlanet {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg) scale(1.5);
+    box-shadow:
+      -6px 0px 18px -5px #fa0,
+      inset -27px 0 14px 5px black;
+  }
+  25% {
+    transform: rotateX(-90deg) rotateY(270deg) rotateZ(0deg) scale(2);
+    box-shadow:
+      -6px 0px 18px -5px #fa0,
+      inset 0px 0 2px 27px black;
+  }
+  50% {
+    transform: rotateX(-90deg) rotateY(180deg) rotateZ(0deg) scale(1.5);
+    box-shadow:
+      6px 0px 18px -5px #fa0,
+      inset 27px 0 14px 5px black;
+  }
+  75% {
+    transform: rotateX(-90deg) rotateY(90deg) rotateZ(0deg) scale(0.75);
+    box-shadow:
+      6px 0px 18px -5px #fa0,
+      inset 0px 0 1px 2px black;
+  }
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg) scale(1.5);
+    box-shadow:
+      -6px 0px 18px -5px #fa0,
+      inset -27px 0 14px 5px black;
   }
 }
 .homeButtonLabel {
@@ -59,19 +134,18 @@
   line-height: normal;
   letter-spacing: 2px;
   pointer-events: none;
+  transform: rotate(20deg);
 }
-
 @media screen and (max-width: 1024px) {
   .homeWrapper {
     background-image: url("../assets/home/background-home-tablet.jpg");
   }
-
   .homeContent {
     margin: 96px auto 40px;
     max-width: 768px;
-    flex-direction: column;
-    gap: 150px;
-    justify-content: flex-start;
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    gap: 50px;
     padding: 100px 10% 0;
     align-items: center;
   }
@@ -81,8 +155,14 @@
     width: auto;
   }
   .homeButton {
-    width: 242px;
-    height: 242px;
+    width: 180px;
+    height: 180px;
+  }
+  .orbit {
+    width: 16em;
+    height: 16em;
+    margin-top: -8em;
+    margin-left: -8em;
   }
 }
 @media screen and (max-width: 600px) {
@@ -103,8 +183,8 @@
     gap: 16px;
   }
   .homeButton {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
   .homeButtonLabel {
     font-size: 20px;
