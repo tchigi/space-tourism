@@ -48,7 +48,7 @@
   pointer-events: auto;
 }
 .homeButton:hover {
-  box-shadow: 0 0 10px 2vw rgba(255, 170, 0, 0.5);
+  box-shadow: 0 0 10px min(15px,1vw) rgba(255, 170, 0, 0.5);
 }
 .system {
   position: relative;
