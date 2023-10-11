@@ -76,7 +76,7 @@
   height: 20em;
   margin-top: -10em;
   margin-left: -10em;
-  border: 4px dotted rgba(100, 100, 100, 0.8);
+  border: 4px dashed rgba(100, 100, 100, 0.8);
   animation: animOrbit 12s linear infinite;
 }
 .planet {
@@ -184,6 +184,18 @@
   .homeButton {
     width: 150px;
     height: 150px;
+  }
+  .planet {
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+  }
+  .orbit {
+    width: 12em;
+    height: 12em;
+    margin-top: -6em;
+    margin-left: -6em;
   }
   .homeButtonLabel {
     font-size: 20px;
