@@ -54,7 +54,7 @@
   max-height: 445px;
 }
 .img {
-  animation: rotate-animation 60s infinite linear;
+  animation: rotate-animation 60s infinite linear, showup-animation 0.5s linear;
   border-radius: 50%;
   box-shadow: black 0 0 20px;
 }
@@ -69,11 +69,25 @@
     transform: rotate(360deg);
   }
 }
+@keyframes showup-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .planetInfo {
   display: flex;
   flex-direction: column;
   max-width: 444px;
   gap: 37px;
+}
+.planetInfo > * {
+  animation: showup-animation 0.5s linear;
+}
+.destinationNavigation {
+  animation: none;
 }
 .travelInfo {
   margin-top: 54px;
